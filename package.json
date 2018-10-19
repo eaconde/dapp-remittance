@@ -5,9 +5,11 @@
   "main": "index.js",
   "scripts": {
     "test": "mocha",
+    "builddev": "truffle compile && truffle migrate --reset && yarn dev",
+    "build": "truffle compile && truffle migrate --reset && yarn prod",
     "dev": "webpack --mode development",
-    "build": "webpack --mode production",
-    "start": "http-serve app/"
+    "prod": "webpack --mode production",
+    "start": "http-serve /build/app"
   },
   "dependencies": {
     "bluebird": "^3.5.0",
