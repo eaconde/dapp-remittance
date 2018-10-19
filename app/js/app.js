@@ -9,18 +9,26 @@ const truffleContract = require("truffle-contract");
 const remittanceJson = require("../../build/contracts/Remittance.json"); 
 var remittance_address;
 
-if(typeof web3 !== 'undefined') {
-    window.web3 = new Web3(web3.currentProvider);
-} else {
-    window.web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545")); 
-}
+// console.log('web3 :::', web3);
+// if(typeof web3 !== 'undefined') {
+//     window.web3 = new Web3(web3.currentProvider);
+// } else {
+console.log('TEST!@');
+window.web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:7000")); 
+// }
 
 require("./utils/utils.js"); 
 require("./utils/bootstrap-duration-picker.js")
 
 Promise.promisifyAll(web3.eth, {suffix: "Promise"}); 
 
+console.log('====================================');
+console.log(remittanceJson);
+console.log('====================================');
 const Remittance = truffleContract(remittanceJson);
+console.log('====================================');
+console.log(Remittance);
+console.log('====================================');
 Remittance.setProvider(web3.currentProvider); 
 let rem; 
 
